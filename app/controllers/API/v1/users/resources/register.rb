@@ -7,6 +7,8 @@ module API
 
           resource 'users' do
             desc 'User registration' do
+              detail 'User registration'
+              failure API::V1::Helpers.input_errors
             end
             params do
               requires :email, type: String, desc: "Email"

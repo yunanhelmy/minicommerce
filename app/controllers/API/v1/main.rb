@@ -15,6 +15,7 @@ module API
       # Mounting Modules
       mount API::V1::Pinger
       mount API::V1::Users::Routes
+      mount API::V1::Products::Routes
 
       add_swagger_documentation(
           api_version:             Minicommerce::VERSION,

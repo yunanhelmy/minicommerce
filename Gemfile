@@ -76,12 +76,14 @@ gem 'rack-cors'
 
 gem 'pagy'
 gem 'pagy_cursor', github: 'yunanhelmy/pagy-cursor'
+gem 'api-pagination', github: 'yunanhelmy/api-pagination'
 gem "devise", "~> 4.7.0"
 gem "devise_invitable", "~> 2.0.1"
 gem "doorkeeper", "~> 5.2.1"
 gem "wine_bouncer", "~> 1.0.4"
 # gem "omniauth-facebook"
 # gem "omniauth-twitter"
+gem "searchkick"
 
 gem "trailblazer"
 gem "trailblazer-rails"

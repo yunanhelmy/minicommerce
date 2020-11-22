@@ -2,11 +2,16 @@
 
 A working example of a Grape API mounted alongside Rails app that uses Trailblazer with Service Object Pattern / DDD.
 
-## Dependencies
+## Stacks
 
 - Rails
 - Grape
 - Trailblazer
+
+## Dependencies
+
+- PostgreSQL
+- Elasticsearch
 
 ## Pattern
 
