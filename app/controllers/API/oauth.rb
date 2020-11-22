@@ -10,8 +10,8 @@ module API
       end
       params do
         requires :grant_type, type: String, values: %w(refresh_token password), default: 'password'
-        requires :client_id, type: String, default: Doorkeeper::Application.first.uid
-        optional :client_secret, type: String, default: Doorkeeper::Application.first.secret
+        requires :client_id, type: String, default: (Doorkeeper::Application.first.uid unless Rails.env.test?)
+        optional :client_secret, type: String, default: (Doorkeeper::Application.first.secret unless Rails.env.test?)
         optional :refresh_token, type: String, desc: '[Refresh token] Your refresh token'
         optional :login, type: String, desc: '[Resource Password] Login (email)', default: 'm.yunan.helmy@gmail.com'
         optional :password, type: String, desc: '[Resource Password] Password', default: 'yunan123'
@@ -23,8 +23,8 @@ module API
         detail 'Logout'
       end
       params do
-        requires :client_id, type: String, default: Doorkeeper::Application.first.uid
-        optional :client_secret, type: String, default: Doorkeeper::Application.first.secret
+        requires :client_id, type: String, default: (Doorkeeper::Application.first.uid unless Rails.env.test?)
+        optional :client_secret, type: String, default: (Doorkeeper::Application.first.secret unless Rails.env.test?)
         optional :token, type: String, desc: 'Your token'
       end
       post :revoke do
@@ -41,8 +41,8 @@ module API
         detail 'Token Introspection'
       end
       params do
-        requires :client_id, type: String, default: Doorkeeper::Application.first.uid
-        optional :client_secret, type: String, default: Doorkeeper::Application.first.secret
+        requires :client_id, type: String, default: (Doorkeeper::Application.first.uid unless Rails.env.test?)
+        optional :client_secret, type: String, default: (Doorkeeper::Application.first.secret unless Rails.env.test?)
         requires :token, type: String
       end
       post :introspect do

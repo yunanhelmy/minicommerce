@@ -21,6 +21,10 @@ A working example of a Grape API mounted alongside Rails app that uses Trailblaz
 1. Generate token
 1. Use the token to play around in main API
 
+## Test
+
+Just run rspec
+
 ## The Boring Legal Things
 
 Copyright

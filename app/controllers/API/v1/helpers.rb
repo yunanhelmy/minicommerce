@@ -39,4 +39,20 @@ module API::V1::Helpers
   def self.resource_errors
     self.basic_errors.concat(self.pagination_errors)
   end
+
+  def render_result(resource, contract = nil, &block)
+    contract_name = contract || resource["contract.default"]
+    if resource.success?
+      yield
+    else
+      if resource["result.policy.default"].present? && resource["result.policy.default"].failure?
+        error! resource["result.policy.message"], 403
+      end
+      if contract_name.nil?
+        present :status, resource.success?
+      else
+        error! contract_name.errors.full_messages.join(", "), 422
+      end
+    end
+  end
 end

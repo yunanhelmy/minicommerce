@@ -6,6 +6,7 @@ module API
         error_formatter :json, ::API::ErrorFormatter
 
         mount API::V1::Users::Resources::Register
+        mount API::V1::Users::Resources::Omniauth
       end
     end
   end

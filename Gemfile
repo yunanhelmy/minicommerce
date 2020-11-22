@@ -31,6 +31,13 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec'
+  gem 'rspec-rails', '~> 4.0.1'
+  gem  "webmock"
+  gem  "factory_bot_rails"
+  gem  "database_cleaner"
+  gem  "faker"
+  gem 'rspec-activemodel-mocks'
 end
 
 group :development do
@@ -74,3 +81,9 @@ gem "devise_invitable", "~> 2.0.1"
 gem "doorkeeper", "~> 5.2.1"
 gem "wine_bouncer", "~> 1.0.4"
 # gem "omniauth-facebook"
+# gem "omniauth-twitter"
+
+gem "trailblazer"
+gem "trailblazer-rails"
+gem "reform", ">= 2.2.0"
+gem "reform-rails"
