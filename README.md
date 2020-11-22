@@ -8,6 +8,36 @@ A working example of a Grape API mounted alongside Rails app that uses Trailblaz
 - Grape
 - Trailblazer
 
+## Pattern
+
+### Model
+
+Using default model directory `app/models` from Rails. Handle primitive database only.
+
+### Repository
+
+In directory `app/concepts/*/repository`. Handle any persistent transaction.
+
+### Contract
+
+In directory `app/concepts/*/contract`. Handle any use case validation.
+
+### Entity
+
+In directory `app/concepts/*/entity`. Handle response to endpoint.
+
+### Operation
+
+In directory `app/concepts/*/operation`. Handle use case / business process.
+
+### Policy
+
+In directory `app/concepts/*/policy`. Handle user permission to use case.
+
+### Endpoint
+
+In directory `app/controllers/API`. Handle endpoint API.
+
 ## Playing Around
 
 1. Clone the repository
@@ -23,7 +53,8 @@ A working example of a Grape API mounted alongside Rails app that uses Trailblaz
 
 ## Test
 
-Just run rspec
+- rake db:test:prepare
+- rspec
 
 ## The Boring Legal Things
 
