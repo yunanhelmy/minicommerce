@@ -1,5 +1,5 @@
 require "grape-swagger"
-# require 'doorkeeper/grape/helpers'
+require 'doorkeeper/grape/helpers'
 require 'minicommerce/version'
 
 module API
@@ -7,7 +7,7 @@ module API
     class Main < Grape::API
       include API::V1::Config
 
-      # helpers Doorkeeper::Grape::Helpers
+      helpers Doorkeeper::Grape::Helpers
       use ::WineBouncer::OAuth2
 
       include API::V1::ExceptionHandlers
@@ -16,6 +16,7 @@ module API
       mount API::V1::Pinger
       mount API::V1::Users::Routes
       mount API::V1::Products::Routes
+      mount API::V1::Orders::Routes
 
       add_swagger_documentation(
           api_version:             Minicommerce::VERSION,

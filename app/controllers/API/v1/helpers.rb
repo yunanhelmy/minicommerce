@@ -62,4 +62,14 @@ module API::V1::Helpers
     current_page = params.page || 1
     present :meta, { total_pages: total_pages, limit_value: limit_value, current_page: current_page }, with: API::V1::Metas::Entities::Meta
   end
+
+  def current_user
+    if doorkeeper_token
+      if doorkeeper_token.resource_owner_id
+        @current_user ||= User.find(doorkeeper_token.resource_owner_id)
+      else
+        @current_user = nil
+      end
+    end
+  end
 end
